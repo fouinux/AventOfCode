@@ -2,7 +2,6 @@ class CharArray():
     def __init__(self, lines):
         self.height = len(lines)
         self.width = len(lines[0].rstrip())
-        self.array =  [['.'] * self.width] * self.height
         self.array = list()
         for y in range(self.height):
             self.array.append([*lines[y].rstrip()])
