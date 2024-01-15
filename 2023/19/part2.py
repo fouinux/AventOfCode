@@ -4,7 +4,7 @@ class ac_range():
         self.stop = stop
 
     def count(self):
-        return self.stop - self.start
+        return self.stop - self.start + 1
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.start}, {self.stop})"
@@ -48,8 +48,7 @@ for l in lines:
     name, *rules = l[:-1].replace('{', ',').split(',')
     workflows[name] = rules
 
-soluces = [Soluce('in', x=ac_range(0, 4000), m=ac_range(0, 4000), a=ac_range(0, 4000), s=ac_range(0, 4000))]
-# print(soluces)
+soluces = [Soluce('in', x=ac_range(1, 4000), m=ac_range(1, 4000), a=ac_range(1, 4000), s=ac_range(1, 4000))]
 
 while any(s.name != 'A' for s in soluces):
     nxt_soluces = []
@@ -77,9 +76,6 @@ while any(s.name != 'A' for s in soluces):
                     if s.name == 'R':
                         soluces.remove(s)
     soluces += nxt_soluces
-    print(soluces)
-
-print(soluces)
 
 result = 0
 for s in soluces:
